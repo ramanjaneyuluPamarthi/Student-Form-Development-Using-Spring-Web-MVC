@@ -2,13 +2,32 @@ package com.nit.binders;
 
 import java.util.Arrays;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="StudentRegister_TBL")
 public class StudentFormBinders {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "STudent_Id")
+	private Integer id;
+	@Column(name = "Name")
 	private String name;
+	@Column(name = "Email")
 	private String email;
-	private String phNo;
+	@Column(name = "Mobile_No")
+	private Long phNo;
+	@Column(name = "Gender")
 	private String gender;
+	@Column(name = "Course")
 	private String course;
+	@Column(name = "Timings")
 	private String[] timings;
 	
 	public String getName() {
@@ -23,10 +42,10 @@ public class StudentFormBinders {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getPhNo() {
+	public Long getPhNo() {
 		return phNo;
 	}
-	public void setPhNo(String phNo) {
+	public void setPhNo(Long phNo) {
 		this.phNo = phNo;
 	}
 	public String getGender() {
